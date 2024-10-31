@@ -88,6 +88,47 @@ function array2(){
    }
    console.log(array2())
    
+console.log('*******MAP to change occupation to Job**********');
+
+
+let data5 = [{ id: "42", name: "Bruce", occupation: "Knight", age: "41" }, { id: "48", name: "Barry", occupation: "Runner", age: "25" }, { id: "57", name: "Bob", occupation: "Fry Cook", age: "19" }, { id: "63", name: "Blaine", occupation: "Quiz Master", age: "58" }, { id: "7", name: "Bilbo", occupation: "None", age: "111" }]
+
+const newArrayOfObj = data5.map(({
+    occupation: job,
+    ...rest
+  }) => ({
+    job,
+    ...rest
+
+    
+  })
+);
+console.log(newArrayOfObj); 
+
+console.log('*****increase all age by 1******')
+
+
+let data6 = [{ id: "42", name: "Bruce", occupation: "Knight", age: "41" }, { id: "48", name: "Barry", occupation: "Runner", age: "25" }, { id: "57", name: "Bob", occupation: "Fry Cook", age: "19" }, { id: "63", name: "Blaine", occupation: "Quiz Master", age: "58" }, { id: "7", name: "Bilbo", occupation: "None", age: "111" }]
+
+
+    //const arr = [{ value: 1 }, { value: 2 }, { value: 3 }];
+
+let incrementedArr = data6.map((obj) => {
+  return { ...obj, age: obj.age + 1 };
+});
+
+console.log(incrementedArr)
+
+console.log('*****reduce method*******')
+
+
+
+let data7 = [{ id: "42", name: "Bruce", occupation: "Knight", age: 41 }, { id: "48", name: "Barry", occupation: "Runner", age: 25 }, { id: "57", name: "Bob", occupation: "Fry Cook", age: 19 }, { id: "63", name: "Blaine", occupation: "Quiz Master", age: 58 }, { id: "7", name: "Bilbo", occupation: "None", age: 111 }]
+
+const sumOfX = data7.reduce((acc, obj) => acc + obj.age, 0);
+let sum = parseInt(sumOfX);
+console.log(sum); // 9
+
 
 
 
@@ -95,18 +136,20 @@ console.log('=======part 3 first Bullet =========')
 
 
 let data3 = [{ id: "42", name: "Bruce", occupation: "Knight", age: "41" }, { id: "48", name: "Barry", occupation: "Runner", age: "25" }, { id: "57", name: "Bob", occupation: "Fry Cook", age: "19" }, { id: "63", name: "Blaine", occupation: "Quiz Master", age: "58" }, { id: "7", name: "Bilbo", occupation: "None", age: "111" }]
-
+//actualAge = parseInt( data3[0].age);
+//actualAge+=5
+//console.log(actualAge)
 function increment(){
     
     for (i=0;i<data3[0].age; i++){
+       let actualAge = parseInt(data3[0].age);
+        //actualAge = collectedAge;
+       return actualAge += 5;
 
-        
-        actualAge = data3[0].age;
-        
-
-    }return actualAge
+    } 
 }
-console.log(increment() + 5)
+console.log(`initial age was increased by 5 which makes the new age: = ${increment()} `)
+
 
 
 
